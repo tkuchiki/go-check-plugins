@@ -1,0 +1,5 @@
+sudo: false
+addons:
+  hosts:
+    - travis.dev
+    - joshkalderimis.com
