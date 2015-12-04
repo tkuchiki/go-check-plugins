@@ -1,13 +1,3 @@
-sudo: false
-addons:
-  hosts:
-    - travis.dev
-    - joshkalderimis.com
-  apt:
-    packages:
-      - rpm
-      - devscripts
-      - debhelper
 language: go
 go:
 - 1.4
@@ -24,6 +14,18 @@ after_script:
 - goveralls -coverprofile=.profile.cov
 after_success:
 - tool/travis/autotag.sh
+sudo: false
+addons:
+  hosts:
+    - travis.dev
+    - joshkalderimis.com
+  apt:
+    packages:
+      - rpm
+      - devscripts
+      - debhelper
+env:
+  - DEBIAN_FRONTEND=noninteractive
 branches:
   only:
     - check-tcp-travis-ci-ipv6 
